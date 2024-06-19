@@ -228,6 +228,7 @@ class ServerBase():
             rack=rack.id if rack else None,
             tags=[{'name': x} for x in self.tags],
             custom_fields=self.custom_fields,
+            role=device_role.id,
         )
         return new_blade
 
@@ -250,6 +251,7 @@ class ServerBase():
             tenant=tenant.id if tenant else None,
             rack=rack.id if rack else None,
             tags=[{'name': x} for x in self.tags],
+            role=device_role.id,
         )
         return new_blade
 
@@ -279,6 +281,7 @@ class ServerBase():
             tenant=tenant.id if tenant else None,
             rack=rack.id if rack else None,
             tags=[{'name': x} for x in self.tags],
+            role=device_role.id,
         )
         return new_server
 
