@@ -2,7 +2,6 @@ import logging
 import os
 import platform
 import re
-import netifaces
 from itertools import chain
 
 import netifaces
