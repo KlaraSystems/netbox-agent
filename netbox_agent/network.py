@@ -1,6 +1,8 @@
 import logging
 import os
+import platform
 import re
+import netifaces
 from itertools import chain
 
 import netifaces
@@ -44,10 +46,13 @@ class Network(object):
 
     def scan(self):
         nics = []
-        for interface in os.listdir('/sys/class/net/'):
+        interfaces = netifaces.interfaces()
+
+        for interface in interfaces:
             # ignore if it's not a link (ie: bonding_masters etc)
-            if not os.path.islink('/sys/class/net/{}'.format(interface)):
-                continue
+            if platform.system() == 'Linux':
+                if not os.path.islink('/sys/class/net/{}'.format(interface)):
+                    continue
 
             if config.network.ignore_interfaces and \
                re.match(config.network.ignore_interfaces, interface):
@@ -84,8 +89,11 @@ class Network(object):
                 addr["netmask"] = addr["netmask"].split('/')[0]
                 ip_addr.append(addr)
 
-            mac = open('/sys/class/net/{}/address'.format(interface), 'r').read().strip()
-            mtu = int(open('/sys/class/net/{}/mtu'.format(interface), 'r').read().strip())
+            #mac = open('/sys/class/net/{}/address'.format(interface), 'r').read().strip()
+            #mtu = int(open('/sys/class/net/{}/mtu'.format(interface), 'r').read().strip())
+            mac = netifaces.ifaddresses(interface).get(netifaces.AF_LINK, [])
+            # TODO
+            mtu = 1500
             vlan = None
             if len(interface.split('.')) > 1:
                 vlan = int(interface.split('.')[1])
