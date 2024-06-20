@@ -90,8 +90,9 @@ class Network(object):
 
             #mac = open('/sys/class/net/{}/address'.format(interface), 'r').read().strip()
             #mtu = int(open('/sys/class/net/{}/mtu'.format(interface), 'r').read().strip())
-            mac = netifaces.ifaddresses(interface).get(netifaces.AF_LINK, [])
-            # TODO
+            mactmp = netifaces.ifaddresses(interface).get(netifaces.AF_LINK, [])
+            mac = mactmp[0]['addr']
+            # TODO: find the MTU
             mtu = 1500
             vlan = None
             if len(interface.split('.')) > 1:
@@ -109,6 +110,10 @@ class Network(object):
             virtual = os.path.isfile(
                 '/sys/class/net/{}/tun_flags'.format(interface)
             )
+
+            # Workaround if mac = interface
+            if mac == interface:
+                mac = '00:00:00:00:00:00'
 
             nic = {
                 'name': interface,
