@@ -7,6 +7,8 @@ from itertools import chain
 import netifaces
 from netaddr import IPAddress
 
+import psutil
+
 from netbox_agent.config import config
 from netbox_agent.config import netbox_instance as nb
 from netbox_agent.ethtool import Ethtool
@@ -46,6 +48,7 @@ class Network(object):
     def scan(self):
         nics = []
         interfaces = netifaces.interfaces()
+        interfaces_stats = psutil.net_if_stats()
 
         for interface in interfaces:
             # ignore if it's not a link (ie: bonding_masters etc)
@@ -88,12 +91,9 @@ class Network(object):
                 addr["netmask"] = addr["netmask"].split('/')[0]
                 ip_addr.append(addr)
 
-            #mac = open('/sys/class/net/{}/address'.format(interface), 'r').read().strip()
-            #mtu = int(open('/sys/class/net/{}/mtu'.format(interface), 'r').read().strip())
             mactmp = netifaces.ifaddresses(interface).get(netifaces.AF_LINK, [])
             mac = mactmp[0]['addr']
-            # TODO: find the MTU
-            mtu = 1500
+            mtu = interfaces_stats[interface].mtu
             vlan = None
             if len(interface.split('.')) > 1:
                 vlan = int(interface.split('.')[1])
