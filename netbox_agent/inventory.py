@@ -10,6 +10,9 @@ import pynetbox
 import logging
 import json
 import re
+import platform
+import os
+import sysctl
 
 
 INVENTORY_TAG = {
@@ -125,6 +128,8 @@ class Inventory():
         )
 
     def get_hw_motherboards(self):
+        if platform.system() == 'FreeBSD':
+            return []
         motherboards = []
 
         m = {}
@@ -177,6 +182,8 @@ class Inventory():
         )
 
     def do_netbox_interfaces(self):
+        if platform.system() == 'FreeBSD':
+            return
         nb_interfaces = self.get_netbox_inventory(
             device_id=self.device_id,
             tag=INVENTORY_TAG['interface']['slug'])
@@ -211,19 +218,52 @@ class Inventory():
 
             logging.info('Creating CPU model {}'.format(cpu['product']))
 
-    def do_netbox_cpus(self):
-        cpus = self.lshw.get_hw_linux('cpu')
-        nb_cpus = self.get_netbox_inventory(
-            device_id=self.device_id,
-            tag=INVENTORY_TAG['cpu']['slug'],
-        )
+    def create_netbox_freebsd_cpu(self):
+        # On FreeBSD we cannot distinguist core and thread
+        cpuinfo = sysctl.filter('hw.model')[0].value
+        for cpu in range(os.sysconf("SC_NPROCESSORS_ONLN")):
+            manufacturer = self.find_or_create_manufacturer(cpuinfo.split(None, 1)[0])
+            _ = nb.dcim.inventory_items.create(
+                    device=self.device_id,
+                    manufactuer=manufacturer.id,
+                    discovered=True,
+                    tags=[{'name': INVENTORY_TAG['cpu']['name']}],
+                    name=cpuinfo,
+                    description='CPU {}'.format(cpu),
+            )
+            logging.info('Creating CPU model {}'.format(cpuinfo))
 
-        if not len(nb_cpus) or \
-           len(nb_cpus) and len(cpus) != len(nb_cpus):
-            for x in nb_cpus:
+
+    def do_netbox_cpus(self):
+        # Linux
+        if platform.system() == 'Linux':
+           cpus = self.lshw.get_hw_linux('cpu')
+           nb_cpus = self.get_netbox_inventory(
+               device_id=self.device_id,
+               tag=INVENTORY_TAG['cpu']['slug'],
+           )
+
+           if not len(nb_cpus) or \
+              len(nb_cpus) and len(cpus) != len(nb_cpus):
+             for x in nb_cpus:
                 x.delete()
 
-            self.create_netbox_cpus()
+             self.create_netbox_cpus()
+
+        # FreeBSD
+        if platform.system() == 'FreeBSD':
+           # Here we have to use another way to adapt the data
+           nb_cpus = self.get_netbox_inventory(
+               device_id=self.device_id,
+               tag=INVENTORY_TAG['cpu']['slug'],
+           )
+
+           if not len(nb_cpus) or \
+                   len(nb_cpus) and os.sysconf("SC_NPROCESSORS_ONLN") != len(nb_cpus):
+              for x in nb_cpus:
+                 x.delete()
+
+              self.create_netbox_freebsd_cpu()
 
     def get_raid_cards(self, filter_cards=False):
         raid_class = None
@@ -327,6 +367,11 @@ class Inventory():
         return False
 
     def get_hw_disks(self):
+        # TOFO: fix that
+        if platform.system() == 'FreeBSD':
+            return []
+
+        # Linux
         disks = []
 
         for raid_card in self.get_raid_cards(filter_cards=True):
@@ -468,6 +513,9 @@ class Inventory():
         return nb_memory
 
     def do_netbox_memories(self):
+        if platform.system() == 'FreeBSD':
+            return
+
         memories = self.lshw.memories
         nb_memories = self.get_netbox_inventory(
             device_id=self.device_id,
@@ -508,6 +556,8 @@ class Inventory():
             self.server.own_gpu_expansion_slot() and is_3d_gpu
 
     def do_netbox_gpus(self):
+        if platform.system() == 'FreeBSD':
+            return
         gpus = []
         gpu_models = {}
         for gpu in  self.lshw.get_hw_linux('gpu'):

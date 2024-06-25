@@ -20,6 +20,7 @@ field_map = {
     'Link detected': 'link',
     'media': 'speed',
     'status': 'link',
+    'autoselect': 'autoneg',
 }
 
 
