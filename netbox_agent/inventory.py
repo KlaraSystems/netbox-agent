@@ -13,6 +13,7 @@ import re
 import platform
 import os
 import sysctl
+import subprocess
 
 
 INVENTORY_TAG = {
@@ -235,13 +236,14 @@ class Inventory():
 
 
     def do_netbox_cpus(self):
+        nb_cpus = self.get_netbox_inventory(
+            device_id=self.device_id,
+            tag=INVENTORY_TAG['cpu']['slug'],
+        )
+
         # Linux
         if platform.system() == 'Linux':
            cpus = self.lshw.get_hw_linux('cpu')
-           nb_cpus = self.get_netbox_inventory(
-               device_id=self.device_id,
-               tag=INVENTORY_TAG['cpu']['slug'],
-           )
 
            if not len(nb_cpus) or \
               len(nb_cpus) and len(cpus) != len(nb_cpus):
@@ -253,10 +255,6 @@ class Inventory():
         # FreeBSD
         if platform.system() == 'FreeBSD':
            # Here we have to use another way to adapt the data
-           nb_cpus = self.get_netbox_inventory(
-               device_id=self.device_id,
-               tag=INVENTORY_TAG['cpu']['slug'],
-           )
 
            if not len(nb_cpus) or \
                    len(nb_cpus) and os.sysconf("SC_NPROCESSORS_ONLN") != len(nb_cpus):
@@ -367,12 +365,49 @@ class Inventory():
         return False
 
     def get_hw_disks(self):
+        disks = []
         # TOFO: fix that
         if platform.system() == 'FreeBSD':
-            return []
+            for disk in sysctl.filter('kern.disks')[0].value.split():
+                if not is_tool('diskinfo'):
+                    logging.error('diskinfo does not seem to exist')
+                else:
+                    diskinfo = subprocess.getoutput('diskinfo -v {}'.format(disk))
+                    if not diskinfo.find("Permission denied") == 0:
+                        # We have some data we can parse it
+                        d = {
+                                "name": "",
+                                "logicalname": disk,
+                                "description": "",
+                                "Type": "",
+                            }
+                        if disk.find('nda'):
+                            d['description'] = 'NVMe Disk'
+                            d['Type'] = 'NVMe Disk'
 
-        # Linux
-        disks = []
+                        for diskinfoline in diskinfo.splitlines():
+                            if diskinfoline.find("mediasize in bytes") > 0:
+                                size = int(int(diskinfoline.split()[0]) / 1073741824)
+                                d['Size'] = '{} GB'.format(size)
+
+                            if diskinfoline.find("Disk ident.") > 0:
+                                d['SN'] = diskinfoline.split()[0]
+
+                            if diskinfoline.find("Disk descr.") > 0:
+                                if diskinfoline.find("ATA") > 0:
+                                    d['description'] = 'ATA Disk'
+                                    d['Type'] = 'ATA Disk'
+                                    d['Vendor'] = diskinfoline.split()[1]
+                                    d['Model'] = diskinfoline.split()[2]
+                                else:
+                                    d['description'] = 'Disk'
+                                    d['Type'] = 'Disk'
+                                    d['Vendor'] = diskinfoline.split()[0]
+                                    d['Model'] = diskinfoline.split()[1]
+                        disks.append(d)
+                
+            return disks
+
 
         for raid_card in self.get_raid_cards(filter_cards=True):
             disks.extend(raid_card.get_physical_disks())
