@@ -366,7 +366,6 @@ class Inventory():
 
     def get_hw_disks(self):
         disks = []
-        # TOFO: fix that
         if platform.system() == 'FreeBSD':
             for disk in sysctl.filter('kern.disks')[0].value.split():
                 if not is_tool('diskinfo'):
