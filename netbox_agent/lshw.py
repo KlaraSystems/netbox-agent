@@ -3,15 +3,18 @@ import subprocess
 import logging
 import json
 import sys
+import platform
 
 
 class LSHW():
     def __init__(self):
         if not is_tool('lshw'):
             logging.error('lshw does not seem to be installed')
-            #sys.exit(1)
-            # XXX tempo
-            return
+            # This is catchall for FreeBSD only.
+            if plateform.system() == 'FreeBSD':
+                return
+            else:
+                sys.exit(1)
 
         data = subprocess.getoutput(
             'lshw -quiet -json'
