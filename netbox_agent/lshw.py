@@ -11,7 +11,7 @@ class LSHW():
         if not is_tool('lshw'):
             logging.error('lshw does not seem to be installed')
             # This is catchall for FreeBSD only.
-            if plateform.system() == 'FreeBSD':
+            if platform.system() == 'FreeBSD':
                 return
             else:
                 sys.exit(1)
