@@ -258,7 +258,7 @@ class ServerBase():
     def _netbox_deduplicate_server(self):
         serial = self.get_service_tag()
         hostname = self.get_hostname()
-        server = nb.dcim.devices.get(name=hostname)
+        server = nb.dcim.devices.get(name=self.get_hostname())
         if server and server.serial != serial:
             server.delete()
 
@@ -287,7 +287,7 @@ class ServerBase():
 
     def get_netbox_server(self, expansion=False):
         if expansion is False:
-            return nb.dcim.devices.get(serial=self.get_service_tag())
+            return nb.dcim.devices.get(name=self.get_hostname())
         else:
             return nb.dcim.devices.get(serial=self.get_expansion_service_tag())
 
@@ -398,14 +398,14 @@ class ServerBase():
             if not chassis:
                 chassis = self._netbox_create_chassis(datacenter, tenant, rack)
 
-            server = nb.dcim.devices.get(serial=self.get_service_tag())
+            server = nb.dcim.devices.get(name=self.get_hostname())
             if not server:
                 server = self._netbox_create_blade(chassis, datacenter, tenant, rack)
 
             # Set slot for blade
             self._netbox_set_or_update_blade_slot(server, chassis, datacenter)
         else:
-            server = nb.dcim.devices.get(serial=self.get_service_tag())
+            server = nb.dcim.devices.get(name=self.get_hostname())
             if not server:
                 server = self._netbox_create_server(datacenter, tenant, rack)
 
