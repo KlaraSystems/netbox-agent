@@ -266,9 +266,9 @@ class Inventory():
 
     def get_raid_cards(self, filter_cards=False):
         raid_class = None
-        if platform.system() == 'FreeBSD':
-    	    if is_tool('mpsutil'):
-                raid_class = mpsutil
+        ###if platform.system() == 'FreeBSD':
+    	    ###if is_tool('mpsutil'):
+                ###raid_class = mpsutil
         if self.server.manufacturer in ('Dell', 'Huawei'):
             if is_tool('omreport'):
                 raid_class = OmreportRaid
