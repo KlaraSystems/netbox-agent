@@ -5,6 +5,7 @@ from netbox_agent.misc import get_vendor, is_tool
 from netbox_agent.raid.hp import HPRaid
 from netbox_agent.raid.omreport import OmreportRaid
 from netbox_agent.raid.storcli import StorcliRaid
+from netbox_agent.raid.mpsutil import mpsutil
 import traceback
 import pynetbox
 import logging
