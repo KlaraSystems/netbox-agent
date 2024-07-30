@@ -462,7 +462,7 @@ class Inventory():
             'tags': [{'name': INVENTORY_TAG['disk']['name']}],
             'name': name,
             'serial': sn,
-            'attachment': attach,
+            'component': attach,
             'part_id': disk['Model'],
             'description': description,
             'manufacturer': getattr(manufacturer, "id", None),
