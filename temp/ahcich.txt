@@ -1,0 +1,71 @@
+{
+    "5": {
+        "disable_phy": "0",
+        "domain": "0",
+        "parent": "ahci0",
+        "pnpinfo": "",
+        "location": {
+            "channel": "5"
+        },
+        "driver": "ahcich",
+        "desc": "AHCI channel"
+    },
+    "4": {
+        "disable_phy": "0",
+        "domain": "0",
+        "parent": "ahci0",
+        "pnpinfo": "",
+        "location": {
+            "channel": "4"
+        },
+        "driver": "ahcich",
+        "desc": "AHCI channel"
+    },
+    "3": {
+        "disable_phy": "0",
+        "domain": "0",
+        "parent": "ahci0",
+        "pnpinfo": "",
+        "location": {
+            "channel": "3"
+        },
+        "driver": "ahcich",
+        "desc": "AHCI channel"
+    },
+    "2": {
+        "disable_phy": "0",
+        "domain": "0",
+        "parent": "ahci0",
+        "pnpinfo": "",
+        "location": {
+            "channel": "2"
+        },
+        "driver": "ahcich",
+        "desc": "AHCI channel"
+    },
+    "1": {
+        "disable_phy": "0",
+        "domain": "0",
+        "parent": "ahci0",
+        "pnpinfo": "",
+        "location": {
+            "channel": "1"
+        },
+        "driver": "ahcich",
+        "desc": "AHCI channel"
+    },
+    "0": {
+        "disable_phy": "0",
+        "domain": "0",
+        "parent": "ahci0",
+        "pnpinfo": "",
+        "location": {
+            "channel": "0"
+        },
+        "driver": "ahcich",
+        "desc": "AHCI channel"
+    },
+    "%parent": {
+        "parent": ""
+    }
+}

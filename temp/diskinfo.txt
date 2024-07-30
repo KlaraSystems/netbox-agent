@@ -1,0 +1,698 @@
+[
+    {
+        "diskinfo": {
+            "id": "da5",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR587KQ4",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@6/elmdesc@Slot_06",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da1",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58C5BD",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@2/elmdesc@Slot_02",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da2",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR585Z33",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@3/elmdesc@Slot_03",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da3",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR57FT2C",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@4/elmdesc@Slot_04",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da7",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58CZQL",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@8/elmdesc@Slot_08",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da4",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58CPSG",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@5/elmdesc@Slot_05",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da10",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58E006",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@b/elmdesc@Slot_11",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da11",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR55AW69",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@c/elmdesc@Slot_12",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da0",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58ELR5",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@1/elmdesc@Slot_01",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da9",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58E2CC",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@a/elmdesc@Slot_10",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da6",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58ESWN",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@7/elmdesc@Slot_07",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da8",
+            "sectorsize": "512",
+            "mediasize in bytes": "18000207937536",
+            "mediasize in sectors": "35156656128",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188400",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58EL2V",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@9/elmdesc@Slot_09",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200",
+            "Zone Mode": "Not_Zoned"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da5p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR587KQ4",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@6/elmdesc@Slot_06/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da5p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR587KQ4",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@6/elmdesc@Slot_06/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da1p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58C5BD",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@2/elmdesc@Slot_02/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da1p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58C5BD",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@2/elmdesc@Slot_02/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da2p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR585Z33",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@3/elmdesc@Slot_03/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da2p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR585Z33",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@3/elmdesc@Slot_03/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da3p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR57FT2C",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@4/elmdesc@Slot_04/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da3p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR57FT2C",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@4/elmdesc@Slot_04/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da7p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58CZQL",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@8/elmdesc@Slot_08/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da7p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58CZQL",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@8/elmdesc@Slot_08/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da4p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58CPSG",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@5/elmdesc@Slot_05/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da4p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58CPSG",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@5/elmdesc@Slot_05/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da10p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58E006",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@b/elmdesc@Slot_11/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da10p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58E006",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@b/elmdesc@Slot_11/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da11p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR55AW69",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@c/elmdesc@Slot_12/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da11p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR55AW69",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@c/elmdesc@Slot_12/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da0p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58ELR5",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@1/elmdesc@Slot_01/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da0p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58ELR5",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@1/elmdesc@Slot_01/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da9p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58E2CC",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@a/elmdesc@Slot_10/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da9p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58E2CC",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@a/elmdesc@Slot_10/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da6p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58ESWN",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@7/elmdesc@Slot_07/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da6p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58ESWN",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@7/elmdesc@Slot_07/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da8p1",
+            "sectorsize": "512",
+            "mediasize in bytes": "2147483648",
+            "mediasize in sectors": "4194304",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "261",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58EL2V",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@9/elmdesc@Slot_09/p1",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    },
+    {
+        "diskinfo": {
+            "id": "da8p2",
+            "sectorsize": "512",
+            "mediasize in bytes": "17998060367872",
+            "mediasize in sectors": "35152461656",
+            "stripesize": "4096",
+            "stripeoffset": "0",
+            "Cylinders according to firmware.": "2188139",
+            "Heads according to firmware.": "255",
+            "Sectors according to firmware.": "63",
+            "Disk descr.": "ATA ST18000NM014J-2W",
+            "Disk ident.": "ZR58EL2V",
+            "Attachment": "mps0",
+            "Physical path": "id1,enc@n5003048001f92d3d/type@0/slot@9/elmdesc@Slot_09/p2",
+            "TRIM/UNMAP support": "No",
+            "Rotation rate in RPM": "7200"
+        }
+    }
+]
