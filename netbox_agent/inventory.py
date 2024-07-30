@@ -455,7 +455,8 @@ class Inventory():
         description = disk['Type']
         sn = disk.get('SN', 'unknown')
         attach = disk.get('attachment', 'unknown')
-
+        print(attach) ###add debug print to make sure data collection is working### 
+        
         parms = {
             'device': self.device_id,
             'discovered': True,
