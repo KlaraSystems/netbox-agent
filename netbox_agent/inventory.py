@@ -430,6 +430,7 @@ class Inventory():
                 'logicalname': disk.get('logicalname'),
                 'description': disk.get('description'),
                 'SN': disk.get('serial'),
+                'label': disk.get('attachment'),
                 'Model': disk.get('product'),
                 'Type': disk.get('type'),
             }
@@ -455,7 +456,6 @@ class Inventory():
         description = disk['Type']
         sn = disk.get('SN', 'unknown')
         attach = disk.get('attachment', 'unknown')
-        print(attach) ###add debug print to make sure data collection is working### 
         
         parms = {
             'device': self.device_id,
@@ -463,7 +463,7 @@ class Inventory():
             'tags': [{'name': INVENTORY_TAG['disk']['name']}],
             'name': name,
             'serial': sn,
-            'component': attach,
+            'label': attach,
             'part_id': disk['Model'],
             'description': description,
             'manufacturer': getattr(manufacturer, "id", None),
