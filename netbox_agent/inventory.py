@@ -392,6 +392,9 @@ class Inventory():
                             if diskinfoline.find("Disk ident.") > 0:
                                 d['SN'] = diskinfoline.split()[0]
 
+                            if diskinfoline.find("Attachment") > 0:
+                                d['attachment'] = diskinfoline.split()[0]
+
                             if diskinfoline.find("Disk descr.") > 0:
                                 if diskinfoline.find("ATA") > 0:
                                     d['description'] = 'ATA Disk'
@@ -451,6 +454,7 @@ class Inventory():
         name = '{} ({})'.format(disk['Model'], disk['Size'])
         description = disk['Type']
         sn = disk.get('SN', 'unknown')
+        attach = disk.get('attachment', 'unknown')
 
         parms = {
             'device': self.device_id,
@@ -458,6 +462,7 @@ class Inventory():
             'tags': [{'name': INVENTORY_TAG['disk']['name']}],
             'name': name,
             'serial': sn,
+            'attachment': attach,
             'part_id': disk['Model'],
             'description': description,
             'manufacturer': getattr(manufacturer, "id", None),
