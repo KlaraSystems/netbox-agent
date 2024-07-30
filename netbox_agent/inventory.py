@@ -63,6 +63,56 @@ class Inventory():
 
         self.lshw = LSHW()
 
+    # Dimminfo using dmidecode for FreeBSD
+    def get_dmidecode(self):
+        result = subprocess.run(['dmidecode'], capture_output=True, text=True)
+        return result.stdout
+
+    def parse_dmidecode(self,output):
+        lines = output.splitlines()
+        data = {}
+        current_section = None
+        current_subsection = None
+
+        for line in lines:
+            if line.startswith('Handle'):
+                continue
+            if "Physical Memory Array" in line:
+                current_section = 'Physical Memory Array'
+                data[current_section] = {}
+            elif "Memory Device" in line:
+                current_section = 'Memory Device'
+                if current_section not in data:
+                    data[current_section] = []
+                current_subsection = {}
+                data[current_section].append(current_subsection)
+            elif line.startswith('\t') and current_section:
+                if ':' in line:
+                    key, value = map(str.strip, line.split(':', 1))
+                    if current_section == 'Physical Memory Array':
+                        if key not in ["Starting Address", "Ending Address"]:
+                            data[current_section][key] = value
+                    elif current_section == 'Memory Device' and current_subsection is not None:
+                        if key not in [
+                            "Starting Address", "Ending Address", "Range Size", "Physical Device Handle", 
+                            "Memory Array Mapped Address Handle", "Partition Row Position"]:
+                            current_subsection[key] = value
+            elif line.strip() == "" and current_section == 'Memory Device':
+                if current_subsection is not None and not current_subsection:
+                    data[current_section].remove(current_subsection)
+                current_subsection = None
+
+        return data
+
+    def get_dimminfo(self):
+        dmidecode_output = self.get_dmidecode()
+        parsed_data = self.parse_dmidecode(dmidecode_output)
+        #json_output = json.dumps({"dimminfo": parsed_data['Memory Device']}, indent=4)
+        #logging.info('Dimm info {}'.format(json_output))
+        return parsed_data
+
+    # End of routines to get memory info with dmidecode on FreeBSD
+
     def create_netbox_tags(self):
         ret = []
         for key, tag in INVENTORY_TAG.items():
@@ -83,16 +133,16 @@ class Inventory():
             return None
 
         manufacturer = nb.dcim.manufacturers.get(
-            name=name,
+            name=name.lower(),
         )
         if not manufacturer:
-            logging.info('Creating missing manufacturer {name}'.format(name=name))
+            logging.info('Creating missing manufacturer {name}'.format(name=name.lower()))
             manufacturer = nb.dcim.manufacturers.create(
-                name=name,
+                name=name.lower(),
                 slug=re.sub('[^A-Za-z0-9]+', '-', name).lower(),
             )
 
-            logging.info('Creating missing manufacturer {name}'.format(name=name))
+            logging.info('Creating missing manufacturer {name}'.format(name=name.lower()))
 
         return manufacturer
 
@@ -546,8 +596,56 @@ class Inventory():
 
         return nb_memory
 
+    def create_netbox_memory_freebsd(self, memory):
+        # Check if this is real memory
+        if len(memory) == 2:
+            return
+        if memory['Size'] == 'No Module Installed':
+            return
+        manufacturer = self.find_or_create_manufacturer(memory['Manufacturer'])
+        name = 'Slot {} ({})'.format(memory['Locator'], memory['Size'])
+        description = '{} {} {} {} {}'.format(memory['Manufacturer'], memory['Type'], memory['Form Factor'], memory['Size'], memory['Configured Memory Speed'])
+        nb_memory = nb.dcim.inventory_items.create(
+            device=self.device_id,
+            discovered=True,
+            manufacturer=manufacturer.id,
+            tags=[{'name': INVENTORY_TAG['memory']['name']}],
+            name=name,
+            part_id=memory['Part Number'],
+            serial=memory['Serial Number'],
+            description=description,
+        )
+
+        logging.info('Creating Memory {location} {type} {size}'.format(
+            location=memory['Locator'],
+            type=memory['Part Number'],
+            size=memory['Size'],
+        ))
+
+        return nb_memory
+
     def do_netbox_memories(self):
         if platform.system() == 'FreeBSD':
+            memories = self.get_dimminfo()['Memory Device']
+            #logging.info('fbsd mem : {}'.format(memories))
+            nb_memories = self.get_netbox_inventory(
+                device_id=self.device_id,
+                tag=INVENTORY_TAG['memory']['slug']
+            )
+
+            # TODO: fix the memory deletion
+            #for nb_memory in nb_memories:
+            #    logging.info('XXX : {}'.format(nb_memory.serial))
+            #    if nb_memory.serial not in [x['serial'] for x in memories]:
+            #        logging.info('Deleting unknown locally Memory {serial}'.format(
+            #            serial=nb_memory.serial,
+            #        ))
+            #        nb_memory.delete()
+
+            for memory in memories:
+                if memory.get('serial') not in [x.serial for x in nb_memories]:
+                    self.create_netbox_memory_freebsd(memory)
+
             return
 
         memories = self.lshw.memories

@@ -9,11 +9,11 @@ import platform
 class LSHW():
     def __init__(self):
         if not is_tool('lshw'):
-            logging.error('lshw does not seem to be installed')
             # This is catchall for FreeBSD only.
             if platform.system() == 'FreeBSD':
                 return
             else:
+                logging.error('lshw does not seem to be installed')
                 sys.exit(1)
 
         data = subprocess.getoutput(
