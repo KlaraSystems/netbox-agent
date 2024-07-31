@@ -107,8 +107,6 @@ class Inventory():
     def get_dimminfo(self):
         dmidecode_output = self.get_dmidecode()
         parsed_data = self.parse_dmidecode(dmidecode_output)
-        #json_output = json.dumps({"dimminfo": parsed_data['Memory Device']}, indent=4)
-        #logging.info('Dimm info {}'.format(json_output))
         return parsed_data
 
     # End of routines to get memory info with dmidecode on FreeBSD
@@ -634,20 +632,21 @@ class Inventory():
             )
 
             # TODO: fix the memory deletion
-            #for nb_memory in nb_memories:
-            #    logging.info('XXX : {}'.format(nb_memory.serial))
-            #    if nb_memory.serial not in [x['serial'] for x in memories]:
-            #        logging.info('Deleting unknown locally Memory {serial}'.format(
-            #            serial=nb_memory.serial,
-            #        ))
-            #        nb_memory.delete()
+            ###for nb_memory in nb_memories:
+                ###logging.info('XXX : {}'.format(nb_memory.serial))
+                ###if nb_memory.serial not in [x['serial'] for x in memories]:
+                    ###logging.info('Deleting unknown locally Memory {serial}'.format(
+                        ###serial=nb_memory.serial,
+                    ###))
+                    ###nb_memory.delete()
 
             for memory in memories:
-                if memory.get('serial') not in [x.serial for x in nb_memories]:
+                if memory.get('Serial Number') not in [x.serial for x in nb_memories]:
                     self.create_netbox_memory_freebsd(memory)
 
             return
 
+        # Linux
         memories = self.lshw.memories
         nb_memories = self.get_netbox_inventory(
             device_id=self.device_id,
