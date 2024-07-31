@@ -1,0 +1,6 @@
+{
+    "__version": "2",
+    "jail-information": {
+        "jail": []
+    }
+}

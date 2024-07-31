@@ -5,6 +5,7 @@ from netbox_agent.misc import get_vendor, is_tool
 from netbox_agent.raid.hp import HPRaid
 from netbox_agent.raid.omreport import OmreportRaid
 from netbox_agent.raid.storcli import StorcliRaid
+from netbox_agent.raid.mpsutil import mpsutil
 import traceback
 import pynetbox
 import logging
@@ -315,6 +316,9 @@ class Inventory():
 
     def get_raid_cards(self, filter_cards=False):
         raid_class = None
+        ###if platform.system() == 'FreeBSD':
+    	    ###if is_tool('mpsutil'):
+                ###raid_class = mpsutil
         if self.server.manufacturer in ('Dell', 'Huawei'):
             if is_tool('omreport'):
                 raid_class = OmreportRaid
@@ -442,6 +446,9 @@ class Inventory():
                             if diskinfoline.find("Disk ident.") > 0:
                                 d['SN'] = diskinfoline.split()[0]
 
+                            if diskinfoline.find("Attachment") > 0:
+                                d['attachment'] = diskinfoline.split()[0]
+
                             if diskinfoline.find("Disk descr.") > 0:
                                 if diskinfoline.find("ATA") > 0:
                                     d['description'] = 'ATA Disk'
@@ -477,6 +484,7 @@ class Inventory():
                 'logicalname': disk.get('logicalname'),
                 'description': disk.get('description'),
                 'SN': disk.get('serial'),
+                'label': disk.get('attachment'),
                 'Model': disk.get('product'),
                 'Type': disk.get('type'),
             }
@@ -501,13 +509,15 @@ class Inventory():
         name = '{} ({})'.format(disk['Model'], disk['Size'])
         description = disk['Type']
         sn = disk.get('SN', 'unknown')
-
+        attach = disk.get('attachment', 'unknown')
+        
         parms = {
             'device': self.device_id,
             'discovered': True,
             'tags': [{'name': INVENTORY_TAG['disk']['name']}],
             'name': name,
             'serial': sn,
+            'label': attach,
             'part_id': disk['Model'],
             'description': description,
             'manufacturer': getattr(manufacturer, "id", None),

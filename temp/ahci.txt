@@ -1,0 +1,19 @@
+{
+    "domain": "0",
+    "parent": "",
+    "pnpinfo": {
+        "vendor": "0x8086",
+        "device": "0x1d02",
+        "subvendor": "0x15d9",
+        "subdevice": "0x0705",
+        "class": "0x010601"
+    },
+    "location": {
+        "slot": "31",
+        "function": "2",
+        "dbsf": "pci0:0:31:2",
+        "handle": "\\_SB_.PCI0.SAT0"
+    },
+    "driver": "ahci",
+    "desc": "Intel Patsburg AHCI SATA controller"
+}

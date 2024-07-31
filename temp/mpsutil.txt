@@ -1,0 +1,32 @@
+[
+    {
+        "Device Name": "/dev/mps0",
+        "Chip Name": "LSISAS2308",
+        "Board Name": "LSI2308-IR",
+        "Firmware": "14000400"
+    },
+    {
+        "Device Name": "/dev/mps1",
+        "Chip Name": "LSISAS2308",
+        "Board Name": "SAS9206-16E",
+        "Firmware": "14000700"
+    },
+    {
+        "Device Name": "/dev/mps2",
+        "Chip Name": "LSISAS2308",
+        "Board Name": "SAS9206-16E",
+        "Firmware": "14000b00"
+    },
+    {
+        "Device Name": "/dev/mps3",
+        "Chip Name": "LSISAS2308",
+        "Board Name": "SAS9206-16E",
+        "Firmware": "14000700"
+    },
+    {
+        "Device Name": "/dev/mps4",
+        "Chip Name": "LSISAS2308",
+        "Board Name": "SAS9206-16E",
+        "Firmware": "14000b00"
+    }
+]
