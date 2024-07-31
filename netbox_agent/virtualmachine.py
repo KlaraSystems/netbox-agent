@@ -25,6 +25,7 @@ def is_vm(dmi):
                 not system['Product Name'].endswith('.metal')
             ) or
             'RHEV Hypervisor' in system['Product Name'] or
+            'BHYVE' in system['Product Name'] or
             'QEMU' in system['Manufacturer'] or
             'VirtualBox' in bios['Version'] or
             'VMware' in system['Manufacturer']
